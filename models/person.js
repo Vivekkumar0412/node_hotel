@@ -1,0 +1,31 @@
+const mongoose = require('mongoose');
+const personSchema = new mongoose.Schema({
+    name : {
+        type : String,
+        required : true
+    },
+    age :{
+        type : Number
+    },
+    work :{
+        type : String,
+        enum : ['software dev','army','ias'],
+        required : true
+    },
+    mobile:{
+        type : String
+    },
+    email : {
+        type : String,
+        required : true,
+        unique : true
+    },address :{
+        type : String
+    },
+    salary : {
+        type : Number,
+        required : true
+    }
+});
+
+module.exports = mongoose.model('person',personSchema);
