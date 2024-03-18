@@ -7,7 +7,7 @@ router.post("/", async (req, res) => {
     let data = req.body;
     let newMenu = await new menuModel(data);
     let response = newMenu.save();
-    res.status(200).json(response);
+    res.status(200).json(newMenu);
   } catch (err) {
     res.send(err);
   }
@@ -17,6 +17,7 @@ router.get("/", async (req, res) => {
   try {
     let data = await menuModel.find();
     res.status(200).json(data);
+    res.send(data);
   } catch (err) {
     res.send(err);
   }
