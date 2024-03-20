@@ -19,8 +19,8 @@ router.post('/',(req,res)=>{
 router.get('/',async(req,res)=>{
     try{
         let data = await Person.find();
-        // res.send(data)
-        res.status(200).json({ddt : data})
+        // res.status(200).json({ddt : data})
+        res.send(data)
     }catch(err){
         console.log(err)
         res.status(400).json({hi:"error"})
